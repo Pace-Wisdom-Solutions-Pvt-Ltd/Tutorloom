@@ -3,7 +3,7 @@ SPDX-FileCopyrightText: 2026 Pace Wisdom Solutions Pvt. Ltd.
 SPDX-License-Identifier: Apache-2.0
 -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="260" viewBox="0 0 1280 260" role="img" aria-labelledby="title desc">
-  <title id="title">How a course runs in LMS</title>
+  <title id="title">How a course runs in TutorLoom</title>
   <desc id="desc">Five steps light up in turn: Build the course, Enrol students in batches, Learn through the roadmap, Grade submissions, and Track progress.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">

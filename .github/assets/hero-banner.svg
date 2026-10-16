@@ -1,25 +1,25 @@
 <!--
 SPDX-FileCopyrightText: 2026 Pace Wisdom Solutions Pvt. Ltd.
-SPDX-License-Identifier: Apache-2.0
+SPDX-License-Identifier: LicenseRef-PaceWisdom-Trademark
 -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-labelledby="title desc">
-  <title id="title">LMS: the open-source, multi-tenant Learning Management System</title>
-  <desc id="desc">Animated banner with drifting brand-colour glows and a typing line describing what the platform does.</desc>
+  <title id="title">TutorLoom: the open-source Learning Management System</title>
+  <desc id="desc">Animated banner: the TutorLoom logo assembles itself (the monitor draws in and the book unfolds), woven threads draw under the name, and a typing line describes what the platform does.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0B1222"/>
-      <stop offset="1" stop-color="#121D38"/>
+      <stop offset="0" stop-color="#0A1428"/>
+      <stop offset="1" stop-color="#14203F"/>
     </linearGradient>
-    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="1" stop-color="#BFD4FF"/>
+    <linearGradient id="loom" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8CC4FF"/>
+      <stop offset=".55" stop-color="#B98CE0"/>
+      <stop offset="1" stop-color="#F06C9B"/>
     </linearGradient>
     <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="60"/>
     </filter>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="tileShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#2F78BD" flood-opacity=".45"/>
     </filter>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M40 0H0V40" fill="none" stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1"/>
@@ -36,14 +36,67 @@ SPDX-License-Identifier: Apache-2.0
       50%  { transform: translate(60px, -30px) scale(1.15); }
       100% { transform: translate(-40px, 25px) scale(0.95); }
     }
-    .title { font: 800 92px 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; letter-spacing: 2px; }
+    .title { font: 800 96px 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; letter-spacing: 1px; }
     .tag   { font: 600 24px 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; fill: #C9D6F2; }
-    .type  { font: 500 26px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill: #7EE0C3; }
-    .prompt{ font: 700 26px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill: #F0912F; }
+    .type  { font: 500 26px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill: #8CC4FF; }
+    .prompt{ font: 700 26px 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill: #F06C9B; }
     .chip  { font: 600 15px 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; fill: #DCE6FF; }
     .fadein { opacity: 0; animation: fadeUp 1s ease-out forwards; }
-    .d1 { animation-delay: .2s; } .d2 { animation-delay: .5s; } .d3 { animation-delay: .8s; }
+    .d1 { animation-delay: .5s; } .d2 { animation-delay: 1.4s; } .d3 { animation-delay: 1.9s; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    .tile  { transform-box: fill-box; transform-origin: center; transform: scale(.6); opacity: 0;
+              animation: pop .7s cubic-bezier(.2,.9,.3,1.3) .1s forwards; }
+    @keyframes pop { to { transform: none; opacity: 1; } }
+    .halo  { transform-box: fill-box; transform-origin: center; animation: halo 4s ease-in-out infinite; }
+    @keyframes halo { 0%, 100% { opacity: .35; transform: scale(.92); } 50% { opacity: .7; transform: scale(1.08); } }
+    .thread { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1;
+               animation: draw 1.4s ease-in-out 1s forwards; }
+    .thread.t2 { animation-delay: 1.25s; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    .shuttle { opacity: 0; animation: shuttle 5s ease-in-out 2.6s infinite; }
+    @keyframes shuttle { 0% { opacity: 0; transform: translateX(0); } 10%, 90% { opacity: 1; }
+                          100% { opacity: 0; transform: translateX(456px); } }
+
+    /* One 8s cycle, repeated: draw the monitor, raise the stand, unfold the pages, hold open,
+       then fold the pages shut and fade the monitor out before starting again. */
+    .mon   { stroke: #2F78BD; stroke-width: 9; stroke-dasharray: 1; animation: monitor 8s ease-in-out infinite; }
+    @keyframes monitor {
+      0%       { stroke-dashoffset: 1; stroke-opacity: 1; fill-opacity: 0; }
+      13%      { stroke-dashoffset: 0; stroke-opacity: 1; fill-opacity: 0; }
+      19%, 84% { stroke-dashoffset: 0; stroke-opacity: 0; fill-opacity: 1; }
+      91%      { stroke-dashoffset: 0; stroke-opacity: 0; fill-opacity: 0; }
+      100%     { stroke-dashoffset: 1; stroke-opacity: 0; fill-opacity: 0; }
+    }
+    .stand { animation: rise 8s ease-out infinite; }
+    @keyframes rise {
+      0%, 11%  { opacity: 0; transform: translateY(46px); }
+      19%, 82% { opacity: 1; transform: none; }
+      89%, 100% { opacity: 0; transform: translateY(46px); }
+    }
+    .pg    { transform-box: fill-box; transform: scaleX(0); animation: 8s ease-in-out infinite; }
+    .pg.l  { transform-origin: right bottom; }
+    .pg.r  { transform-origin: left bottom; }
+    .pg.back  { animation-name: unfoldBack; }
+    .pg.front { animation-name: unfoldFront; }
+    @keyframes unfoldBack {
+      0%, 16%   { transform: scaleX(0); animation-timing-function: cubic-bezier(.2,.9,.25,1.15); }
+      27%, 77%  { transform: scaleX(1); }
+      83%, 100% { transform: scaleX(0); }
+    }
+    @keyframes unfoldFront {
+      0%, 19%   { transform: scaleX(0); animation-timing-function: cubic-bezier(.2,.9,.25,1.15); }
+      30%, 73%  { transform: scaleX(1); }
+      79%, 100% { transform: scaleX(0); }
+    }
+    .book  { transform-box: fill-box; transform-origin: center; animation: float 4s ease-in-out infinite; }
+    @keyframes float  { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+    .spark { opacity: 0; transform-box: fill-box; transform-origin: center; animation: spark 8s ease-out infinite; }
+    .spark.s2 { animation-delay: .5s; } .spark.s3 { animation-delay: 1s; } .spark.s4 { animation-delay: 1.5s; }
+    @keyframes spark  {
+      0%, 33% { opacity: 0; transform: translateY(0) scale(.4) rotate(0); }
+      40%     { opacity: 1; }
+      66%, 100% { opacity: 0; transform: translateY(-120px) scale(1) rotate(90deg); }
+    }
 
     /* Typing line: four phrases typed one after another (SMIL below), with a blinking cursor */
     .caret { animation: blink 1s steps(1) infinite; }
@@ -52,7 +105,13 @@ SPDX-License-Identifier: Apache-2.0
     .dot.t2 { animation-delay: -1.3s; } .dot.t3 { animation-delay: -2.6s; }
     @keyframes twinkle { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.9; } }
     @media (prefers-reduced-motion: reduce) {
-      .blob, .caret, .dot { animation: none; }
+      .blob, .caret, .dot, .halo, .shuttle { animation: none; }
+      .tile, .fadein { animation: none; opacity: 1; transform: none; }
+      .thread { animation: none; stroke-dashoffset: 0; }
+
+      .mon { animation: none; fill-opacity: 1; stroke-opacity: 0; stroke-dashoffset: 0; }
+      .stand, .pg { animation: none; opacity: 1; transform: none; }
+      .book, .spark { animation: none; }
     }
   </style>
 
@@ -60,39 +119,66 @@ SPDX-License-Identifier: Apache-2.0
     <rect width="1280" height="400" fill="url(#bg)"/>
     <rect width="1280" height="400" fill="url(#grid)"/>
 
-    <!-- Drifting colour glows -->
-    <circle class="blob"    cx="220"  cy="120" r="170" fill="#3BBFC4" opacity="0.28" filter="url(#blur)"/>
-    <circle class="blob b2" cx="1080" cy="80"  r="190" fill="#E2507A" opacity="0.22" filter="url(#blur)"/>
-    <circle class="blob b3" cx="900"  cy="360" r="200" fill="#2E9BE0" opacity="0.25" filter="url(#blur)"/>
-    <circle class="blob b2" cx="420"  cy="380" r="150" fill="#F0912F" opacity="0.16" filter="url(#blur)"/>
+    <!-- Drifting colour glows in the TutorLoom palette -->
+    <circle class="blob"    cx="220"  cy="120" r="170" fill="#2F78BD" opacity="0.35" filter="url(#blur)"/>
+    <circle class="blob b2" cx="1080" cy="80"  r="190" fill="#CE3C71" opacity="0.24" filter="url(#blur)"/>
+    <circle class="blob b3" cx="900"  cy="360" r="200" fill="#9A58C0" opacity="0.26" filter="url(#blur)"/>
+    <circle class="blob b2" cx="420"  cy="380" r="150" fill="#BDE0FE" opacity="0.12" filter="url(#blur)"/>
 
     <!-- Twinkling stars -->
     <g fill="#FFFFFF">
-      <circle class="dot"    cx="560"  cy="48"  r="1.6"/>
+      <circle class="dot"    cx="560"  cy="40"  r="1.6"/>
       <circle class="dot t2" cx="1180" cy="210" r="1.8"/>
-      <circle class="dot t3" cx="720"  cy="360" r="1.4"/>
+      <circle class="dot t3" cx="720"  cy="370" r="1.4"/>
       <circle class="dot"    cx="1010" cy="320" r="1.6"/>
-      <circle class="dot t2" cx="470"  cy="300" r="1.3"/>
+      <circle class="dot t2" cx="150"  cy="300" r="1.3"/>
       <circle class="dot t3" cx="1230" cy="60"  r="1.5"/>
-      <circle class="dot t2" cx="660"  cy="140" r="1.2"/>
+      <circle class="dot t2" cx="1060" cy="150" r="1.2"/>
     </g>
 
+    <!-- Logo tile -->
+    <circle class="halo" cx="394.0" cy="122.0" r="104" fill="#2F78BD" opacity=".45" filter="url(#blur)"/>
+    <g class="tile">
+      <rect x="318" y="46" width="152" height="152" rx="36" fill="#FFFFFF" filter="url(#tileShadow)"/>
+      <g transform="translate(336.0 64.0) scale(0.2265625)">
+        <path class="mon" pathLength="1" d="M50.8032 73.1101C54.6353 72.5317 64.7922 72.8265 68.8923 72.8309L104.398 72.8352L104.417 114.626C95.517 114.578 64.836 113.602 57.7859 115.831C53.0001 117.3 48.5986 120.286 45.0053 124.502C38.8768 131.737 36.0993 141.646 36.1146 151.996C36.1863 201.115 36.1675 250.313 36.155 299.425L36.1077 345.822C36.0958 355.103 35.4213 367.365 36.8254 376.234C40.0351 396.499 53.3774 404.838 68.2282 404.972L411.093 404.943C424.122 404.947 438.207 405.322 451.197 404.474C456.62 404.119 463.643 399.17 467.534 394.269C471.273 389.612 473.876 383.734 475.059 377.309C476.368 369.992 475.888 348.115 475.874 339.071L475.888 275.557C491.418 278.448 501.331 277.656 511.87 261.589L511.897 344.109C511.911 356.714 512.538 377.719 510.519 389.413C508.702 399.874 505.006 409.682 499.702 418.088C481.13 447.464 461.277 446.639 434.504 446.632L77.9375 446.636C56.1946 446.649 40.4751 448.589 22.0755 430.259C9.86231 418.085 2.08469 400.276 0.497564 380.851C-0.376748 370.285 0.164123 346.492 0.178741 334.893L0.188492 170.529C0.182923 159.733 -0.380924 139.487 0.719622 129.706C2.05128 118.014 5.91745 106.999 11.8984 97.8559C21.8855 82.5986 35.3997 75.1004 50.8032 73.1101Z" fill="#2F78BD"/>
+        <path class="stand" d="M191.562 464.704L315.349 464.705C324.068 464.703 334.132 462.838 341.005 470.438C345.015 474.8 347.447 481.001 347.752 487.635C348.357 503.131 338.202 511.399 326.857 511.856C294.089 511.238 260.172 511.848 227.303 511.853L200.88 511.843C192.036 511.835 181.078 513.581 174.208 505.622C170.514 501.29 168.363 495.289 168.235 488.959C168.14 482.473 170.113 476.206 173.72 471.541C178.854 464.987 184.855 464.83 191.562 464.704Z" fill="#2F78BD"/>
+        <g class="book">
+          <path class="pg l back"  d="M286.629 293.241C285.023 291.903 283.344 290.261 281.772 288.826C267.895 276.164 252.242 267.446 235.621 261.862C222.557 257.624 209.18 255.059 195.7 254.205C175.208 252.875 153.767 256.246 133.328 253.958C125.181 253.047 116.9 241.359 116.098 231.253C115.385 222.266 115.584 212.805 115.61 203.48L115.666 157.995L115.621 100.517C115.61 79.6617 111.598 48.532 134.112 44.6419C138.641 44.7455 143.171 44.8046 147.7 44.8185L147.739 143.514C147.734 158.308 147.283 174.827 148.283 189.209C149.135 201.457 160.585 209.533 169.55 208.332C181.566 207.703 193.35 206.98 205.347 207.476C235.557 208.553 261.812 221.494 284.24 246.9C285.409 248.224 286.24 249.197 286.569 251.112C287.194 262.439 286.691 281.563 286.629 293.241Z" fill="#255D93"/>
+          <path class="pg r back"  d="M490.011 44.5927C500.446 47.2658 507.24 56.5828 507.727 70.0396C508.138 81.3956 507.95 92.7656 507.936 104.135L507.852 167.065L507.894 209.874C507.908 217.587 508.27 232.083 507.087 238.987C505.945 245.648 502.687 251.443 498.058 255.041C488.814 262.271 468.982 256.84 458.303 255.331C447.883 253.907 437.399 253.33 426.919 253.602C412.626 254.063 398.426 256.628 384.614 261.245C362.06 268.893 351.302 277.066 332.762 293.13C332.673 278.607 332.65 264.084 332.696 249.561C333.209 248.785 334.132 247.686 334.712 246.984C361.265 214.895 393.885 203.96 430.11 205.868C438.646 206.081 446.714 207.327 455.311 207.747C464.374 208.189 473.486 200.761 475.206 189.223C476.264 182.086 475.714 173.201 475.818 165.819C475.916 158.33 475.811 150.647 475.811 143.114L475.742 44.5459C480.712 44.7843 485.034 44.7327 490.011 44.5927Z" fill="#255D93"/>
+          <path class="pg l front" d="M147.747 44.2657C147.697 32.1999 146.646 20.555 153.999 11.2954C156.532 8.10472 160.806 4.57221 164.318 3.82848C184.274 -0.272914 205.229 1.55032 225.405 0.867481C248.844 0.0732977 272.687 4.27297 290.335 25.3114C304.922 42.7017 302.377 64.1168 302.381 86.8385L302.32 272.503C300.119 268.928 290.036 251.982 286.844 250.916L286.569 251.111C287.194 262.437 286.691 281.562 286.629 293.24C285.023 291.902 283.344 290.26 281.772 288.825C267.895 276.163 252.242 267.444 235.621 261.861C222.557 257.623 209.18 255.057 195.7 254.203C175.208 252.874 153.767 256.245 133.328 253.957C125.181 253.045 116.9 241.358 116.098 231.252C115.385 222.265 115.584 212.804 115.61 203.479L115.666 157.994L115.621 100.516C115.61 79.6604 111.598 48.5307 134.112 44.6406C138.422 43.9856 143.364 44.2231 147.747 44.2657Z" fill="#2F78BD"/>
+          <path class="pg r front" d="M317.52 271.98C317.484 270.872 317.461 269.763 317.452 268.653L317.436 82.5134C317.424 60.2041 315.803 44.9284 329.984 27.6913C348.044 5.73858 373.069 -0.73406 397.524 0.0644725C417.638 0.722088 438.624 -1.01763 458.526 3.00025C462.083 3.74834 466.845 7.43046 469.448 10.6629C476.98 20.0139 475.852 31.9605 475.755 44.1899C480.224 44.1708 485.674 43.9646 490.011 44.5927C500.446 47.2658 507.24 56.5828 507.727 70.0396C508.138 81.3956 507.95 92.7656 507.936 104.135L507.852 167.065L507.894 209.874C507.908 217.587 508.27 232.083 507.087 238.987C505.945 245.648 502.687 251.443 498.058 255.041C488.814 262.271 468.982 256.84 458.303 255.331C447.883 253.907 437.399 253.33 426.919 253.602C412.626 254.063 398.426 256.628 384.614 261.245C362.06 268.893 351.302 277.066 332.762 293.13C332.673 278.607 332.65 264.084 332.696 249.561C327.664 255.289 321.808 265.15 317.52 271.98Z" fill="#2F78BD"/>
+        </g>
+        <g>
+          <g transform="translate(150 150)"><path class="spark s1" d="M0 -14 C2 -4 4 -2 14 0 C4 2 2 4 0 14 C-2 4 -4 2 -14 0 C-4 -2 -2 -4 0 -14Z" fill="#CE3C71"/></g>
+          <g transform="translate(372 120)"><path class="spark s2" d="M0 -14 C2 -4 4 -2 14 0 C4 2 2 4 0 14 C-2 4 -4 2 -14 0 C-4 -2 -2 -4 0 -14Z" fill="#9A58C0"/></g>
+          <g transform="translate(250 90) scale(.8)"><path class="spark s3" d="M0 -14 C2 -4 4 -2 14 0 C4 2 2 4 0 14 C-2 4 -4 2 -14 0 C-4 -2 -2 -4 0 -14Z" fill="#2F78BD"/></g>
+          <g transform="translate(430 190) scale(.7)"><path class="spark s4" d="M0 -14 C2 -4 4 -2 14 0 C4 2 2 4 0 14 C-2 4 -4 2 -14 0 C-4 -2 -2 -4 0 -14Z" fill="#CE3C71"/></g>
+        </g>
+      </g>
+    </g>
 
-    <!-- Text block -->
-    <text class="title fadein d1" x="640" y="160" text-anchor="middle" fill="url(#titleGrad)">LMS</text>
-    <text class="tag fadein d2" x="640" y="206" text-anchor="middle">The open-source, multi-tenant Learning Management System</text>
+    <!-- Wordmark, sized to a fixed width so the layout holds whatever font renders it -->
+    <text class="title fadein d1" x="504" y="150" textLength="456" lengthAdjust="spacingAndGlyphs"><tspan fill="#FFFFFF">Tutor</tspan><tspan fill="url(#loom)">Loom</tspan></text>
+
+    <!-- Two woven threads under the name, with a shuttle running along them -->
+    <path class="thread"    pathLength="1" d="M508 182 q 16.000 -9 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0" stroke="#2F78BD"/>
+    <path class="thread t2" pathLength="1" d="M508 182 q 16.000 9 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0 t 32.000 0" stroke="#CE3C71"/>
+    <circle class="shuttle" cx="508" cy="182" r="5" fill="#FFFFFF"/>
+
+    <text class="tag fadein d2" x="640" y="246" text-anchor="middle">The open-source Learning Management System</text>
 
     <g class="fadein d3">
-      <text class="prompt" x="428" y="266">&#x276F;</text>
+      <text class="prompt" x="428" y="296">&#x276F;</text>
 
-      <g transform="translate(460 240)">
+      <g transform="translate(460 270)">
         <g opacity="0">
           <animate attributeName="opacity" values="1;0;0" keyTimes="0;0.2500;1" calcMode="discrete" dur="16s" repeatCount="indefinite"/>
           <clipPath id="type0"><rect height="40" width="0">
             <animate attributeName="width" values="0.0;15.6;31.2;46.8;62.4;78.0;93.6;109.2;124.8;140.4;156.0;171.6;187.2;202.8;218.4;234.0;249.6;265.2;280.8;296.4;312.0;327.6;343.2;358.8;374.4;374.4;0;0" keyTimes="0.0000;0.0175;0.0350;0.0525;0.0700;0.0875;0.1050;0.1225;0.1400;0.1575;0.1750;0.1925;0.2100;0.2275;0.2450;0.2625;0.2800;0.2975;0.3150;0.3325;0.3500;0.3675;0.3850;0.4025;0.4200;0.8500;0.9250;1.0000" calcMode="discrete" dur="4.0s" begin="0.0s" repeatCount="indefinite"/>
           </rect></clipPath>
           <text class="type" x="0" y="26" clip-path="url(#type0)">Build structured courses</text>
-          <rect class="caret" y="6" width="12" height="26" fill="#7EE0C3" x="0">
+          <rect class="caret" y="6" width="12" height="26" fill="#8CC4FF" x="0">
             <animate attributeName="x" values="0.0;15.6;31.2;46.8;62.4;78.0;93.6;109.2;124.8;140.4;156.0;171.6;187.2;202.8;218.4;234.0;249.6;265.2;280.8;296.4;312.0;327.6;343.2;358.8;374.4;374.4;0;0" keyTimes="0.0000;0.0175;0.0350;0.0525;0.0700;0.0875;0.1050;0.1225;0.1400;0.1575;0.1750;0.1925;0.2100;0.2275;0.2450;0.2625;0.2800;0.2975;0.3150;0.3325;0.3500;0.3675;0.3850;0.4025;0.4200;0.8500;0.9250;1.0000" calcMode="discrete" dur="4.0s" begin="0.0s" repeatCount="indefinite"/>
           </rect>
         </g>
@@ -102,7 +188,7 @@ SPDX-License-Identifier: Apache-2.0
             <animate attributeName="width" values="0.0;15.6;31.2;46.8;62.4;78.0;93.6;109.2;124.8;140.4;156.0;171.6;187.2;202.8;218.4;234.0;249.6;265.2;280.8;296.4;312.0;327.6;343.2;358.8;374.4;390.0;390.0;0;0" keyTimes="0.0000;0.0175;0.0350;0.0525;0.0700;0.0875;0.1050;0.1225;0.1400;0.1575;0.1750;0.1925;0.2100;0.2275;0.2450;0.2625;0.2800;0.2975;0.3150;0.3325;0.3500;0.3675;0.3850;0.4025;0.4200;0.4375;0.8500;0.9250;1.0000" calcMode="discrete" dur="4.0s" begin="4.0s" repeatCount="indefinite"/>
           </rect></clipPath>
           <text class="type" x="0" y="26" clip-path="url(#type1)">Enrol learners in batches</text>
-          <rect class="caret" y="6" width="12" height="26" fill="#7EE0C3" x="0">
+          <rect class="caret" y="6" width="12" height="26" fill="#8CC4FF" x="0">
             <animate attributeName="x" values="0.0;15.6;31.2;46.8;62.4;78.0;93.6;109.2;124.8;140.4;156.0;171.6;187.2;202.8;218.4;234.0;249.6;265.2;280.8;296.4;312.0;327.6;343.2;358.8;374.4;390.0;390.0;0;0" keyTimes="0.0000;0.0175;0.0350;0.0525;0.0700;0.0875;0.1050;0.1225;0.1400;0.1575;0.1750;0.1925;0.2100;0.2275;0.2450;0.2625;0.2800;0.2975;0.3150;0.3325;0.3500;0.3675;0.3850;0.4025;0.4200;0.4375;0.8500;0.9250;1.0000" calcMode="discrete" dur="4.0s" begin="4.0s" repeatCount="indefinite"/>
           </rect>
         </g>
@@ -112,7 +198,7 @@ SPDX-License-Identifier: Apache-2.0
             <animate attributeName="width" values="0.0;15.6;31.2;46.8;62.4;78.0;93.6;109.2;124.8;140.4;156.0;171.6;187.2;202.8;218.4;234.0;249.6;265.2;280.8;296.4;312.0;327.6;343.2;358.8;374.4;374.4;0;0" keyTimes="0.0000;0.0175;0.0350;0.0525;0.0700;0.0875;0.1050;0.1225;0.1400;0.1575;0.1750;0.1925;0.2100;0.2275;0.2450;0.2625;0.2800;0.2975;0.3150;0.3325;0.3500;0.3675;0.3850;0.4025;0.4200;0.8500;0.9250;1.0000" calcMode="discrete" dur="4.0s" begin="8.0s" repeatCount="indefinite"/>
           </rect></clipPath>
           <text class="type" x="0" y="26" clip-path="url(#type2)">Grade work with feedback</text>
-          <rect class="caret" y="6" width="12" height="26" fill="#7EE0C3" x="0">
+          <rect class="caret" y="6" width="12" height="26" fill="#8CC4FF" x="0">
             <animate attributeName="x" values="0.0;15.6;31.2;46.8;62.4;78.0;93.6;109.2;124.8;140.4;156.0;171.6;187.2;202.8;218.4;234.0;249.6;265.2;280.8;296.4;312.0;327.6;343.2;358.8;374.4;374.4;0;0" keyTimes="0.0000;0.0175;0.0350;0.0525;0.0700;0.0875;0.1050;0.1225;0.1400;0.1575;0.1750;0.1925;0.2100;0.2275;0.2450;0.2625;0.2800;0.2975;0.3150;0.3325;0.3500;0.3675;0.3850;0.4025;0.4200;0.8500;0.9250;1.0000" calcMode="discrete" dur="4.0s" begin="8.0s" repeatCount="indefinite"/>
           </rect>
         </g>
@@ -122,22 +208,20 @@ SPDX-License-Identifier: Apache-2.0
             <animate attributeName="width" values="0.0;15.6;31.2;46.8;62.4;78.0;93.6;109.2;124.8;140.4;156.0;171.6;187.2;202.8;218.4;234.0;249.6;265.2;280.8;296.4;312.0;327.6;343.2;358.8;374.4;390.0;390.0;0;0" keyTimes="0.0000;0.0175;0.0350;0.0525;0.0700;0.0875;0.1050;0.1225;0.1400;0.1575;0.1750;0.1925;0.2100;0.2275;0.2450;0.2625;0.2800;0.2975;0.3150;0.3325;0.3500;0.3675;0.3850;0.4025;0.4200;0.4375;0.8500;0.9250;1.0000" calcMode="discrete" dur="4.0s" begin="12.0s" repeatCount="indefinite"/>
           </rect></clipPath>
           <text class="type" x="0" y="26" clip-path="url(#type3)">Track progress end to end</text>
-          <rect class="caret" y="6" width="12" height="26" fill="#7EE0C3" x="0">
+          <rect class="caret" y="6" width="12" height="26" fill="#8CC4FF" x="0">
             <animate attributeName="x" values="0.0;15.6;31.2;46.8;62.4;78.0;93.6;109.2;124.8;140.4;156.0;171.6;187.2;202.8;218.4;234.0;249.6;265.2;280.8;296.4;312.0;327.6;343.2;358.8;374.4;390.0;390.0;0;0" keyTimes="0.0000;0.0175;0.0350;0.0525;0.0700;0.0875;0.1050;0.1225;0.1400;0.1575;0.1750;0.1925;0.2100;0.2275;0.2450;0.2625;0.2800;0.2975;0.3150;0.3325;0.3500;0.3675;0.3850;0.4025;0.4200;0.4375;0.8500;0.9250;1.0000" calcMode="discrete" dur="4.0s" begin="12.0s" repeatCount="indefinite"/>
           </rect>
         </g>
       </g>
 
       <!-- Feature chips -->
-      <g transform="translate(319 306)">
-        <rect width="150" height="34" rx="17" fill="#FFFFFF" fill-opacity="0.07" stroke="#6CC25E" stroke-opacity="0.6"/>
-        <text class="chip" x="75" y="22" text-anchor="middle">Multi-tenant</text>
-        <rect x="164" width="150" height="34" rx="17" fill="#FFFFFF" fill-opacity="0.07" stroke="#2E9BE0" stroke-opacity="0.6"/>
-        <text class="chip" x="239" y="22" text-anchor="middle">Web + Mobile</text>
-        <rect x="328" width="150" height="34" rx="17" fill="#FFFFFF" fill-opacity="0.07" stroke="#E2507A" stroke-opacity="0.6"/>
-        <text class="chip" x="403" y="22" text-anchor="middle">REST API</text>
-        <rect x="492" width="150" height="34" rx="17" fill="#FFFFFF" fill-opacity="0.07" stroke="#F0912F" stroke-opacity="0.6"/>
-        <text class="chip" x="567" y="22" text-anchor="middle">Self-hosted</text>
+      <g transform="translate(401 324)">
+        <rect width="150" height="34" rx="17" fill="#FFFFFF" fill-opacity="0.07" stroke="#2F78BD" stroke-opacity="0.8"/>
+        <text class="chip" x="75" y="22" text-anchor="middle">Web + Mobile</text>
+        <rect x="164" width="150" height="34" rx="17" fill="#FFFFFF" fill-opacity="0.07" stroke="#B98CE0" stroke-opacity="0.6"/>
+        <text class="chip" x="239" y="22" text-anchor="middle">REST API</text>
+        <rect x="328" width="150" height="34" rx="17" fill="#FFFFFF" fill-opacity="0.07" stroke="#F06C9B" stroke-opacity="0.6"/>
+        <text class="chip" x="403" y="22" text-anchor="middle">Self-hosted</text>
       </g>
     </g>
   </g>

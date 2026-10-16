@@ -1,12 +1,13 @@
 <div align="center">
 
-<img src=".github/assets/hero-banner.svg" alt="LMS: the open-source, multi-tenant Learning Management System" width="100%" />
+<img src=".github/assets/hero-banner.svg" alt="TutorLoom: the open-source Learning Management System" width="100%" />
 
 <br/>
 
-[![CI](https://github.com/pacewisdomsolutions/LMS/actions/workflows/ci.yml/badge.svg)](https://github.com/pacewisdomsolutions/LMS/actions/workflows/ci.yml)
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-0A7BBB.svg)](LICENSE)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-2EA44F.svg)](CONTRIBUTING.md)
+[![CI](https://github.com/Pace-Wisdom-Solutions-Pvt-Ltd/Tuturloom/actions/workflows/ci.yml/badge.svg)](https://github.com/Pace-Wisdom-Solutions-Pvt-Ltd/Tuturloom/actions/workflows/ci.yml)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-2F78BD.svg)](LICENSE)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-CE3C71.svg)](CONTRIBUTING.md)
+[![GitHub stars](https://img.shields.io/github/stars/Pace-Wisdom-Solutions-Pvt-Ltd/Tuturloom?style=flat&logo=github&color=9A58C0)](https://github.com/Pace-Wisdom-Solutions-Pvt-Ltd/Tuturloom/stargazers)
 
 ![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-6-092E20?logo=django&logoColor=white)
@@ -16,9 +17,11 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![Flutter](https://img.shields.io/badge/Flutter-mobile-02569B?logo=flutter&logoColor=white)
 
-[**Quickstart**](#-quickstart) · [**Features**](#-features) · [**Architecture**](#-architecture) · [**API docs**](#-api) · [**Contributing**](#-contributing)
+[**Screenshots**](#-screenshots) · [**Quickstart**](#-quickstart) · [**Editions**](#-editions) · [**Architecture**](#-architecture) · [**API**](#-api) · [**Contributing**](#-contributing)
 
 </div>
+
+**TutorLoom** is a free, self-hosted learning platform for institutes and training teams. Build structured courses, enrol learners in batches, grade their work and follow their progress, on the web and on Android and iOS.
 
 ---
 
@@ -57,6 +60,65 @@
 
 ---
 
+## 📸 Screenshots
+
+### 🖥️ Web app
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <img src=".github/assets/screenshots/web-admin-dashboard.png" alt="Institute Admin dashboard with batch, staff and student analytics" />
+      <p align="center"><b>Institute Admin dashboard</b></p>
+    </td>
+    <td width="50%" valign="top">
+      <img src=".github/assets/screenshots/web-course-builder.png" alt="Course builder showing the levels of a course" />
+      <p align="center"><b>Course builder</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src=".github/assets/screenshots/web-trainer-dashboard.png" alt="Trainer dashboard with pending evaluations and completion stats" />
+      <p align="center"><b>Trainer dashboard</b></p>
+    </td>
+    <td width="50%" valign="top">
+      <img src=".github/assets/screenshots/web-org-picker.png" alt="Organisation picker shown to a user who belongs to several organisations" />
+      <p align="center"><b>One account, many organisations</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src=".github/assets/screenshots/web-student-dashboard.png" alt="Student learning dashboard with overall and per-course progress" />
+      <p align="center"><b>Student dashboard</b></p>
+    </td>
+    <td width="50%" valign="top">
+      <img src=".github/assets/screenshots/web-student-courses.png" alt="Student course cards with completion badges" />
+      <p align="center"><b>My courses</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src=".github/assets/screenshots/web-student-roadmap.png" alt="Student course roadmap with modules and steps" />
+      <p align="center"><b>Course roadmap</b></p>
+    </td>
+    <td width="50%" valign="top">
+      <img src=".github/assets/screenshots/web-student-progress.png" alt="Student progress with an earned course certificate" />
+      <p align="center"><b>Progress &amp; certificates</b></p>
+    </td>
+  </tr>
+</table>
+
+### 📱 Mobile app (Android &amp; iOS)
+
+<p align="center">
+  <img src=".github/assets/screenshots/mobile-login.png" alt="Mobile app sign-in" width="19%" />
+  <img src=".github/assets/screenshots/mobile-home.png" alt="Mobile app home dashboard" width="19%" />
+  <img src=".github/assets/screenshots/mobile-courses.png" alt="Mobile app course list" width="19%" />
+  <img src=".github/assets/screenshots/mobile-roadmap.png" alt="Mobile app course roadmap" width="19%" />
+  <img src=".github/assets/screenshots/mobile-progress.png" alt="Mobile app progress" width="19%" />
+</p>
+
+---
+
 ## 🔄 How it works
 
 <p align="center">
@@ -80,11 +142,12 @@ This repository is the **Community edition**: free, open source and self-hosted.
 | Trainer portal: dashboard, grading, learner progress | ✅ | ✅ |
 | Student portal & mobile app: dashboard, roadmap, progress | ✅ | ✅ |
 | Points & levels | ✅ | ✅ |
+| Course completion certificates (PDF) | ✅ | ✅ |
 | Branded email notifications | ✅ | ✅ |
 | Google & Microsoft sign-in | — | ✅ |
 | Coding questions with AI test cases & starter code | — | ✅ |
 | Course import/export, quiz bulk upload, drip release | — | ✅ |
-| Assessments (MCQ, task, coding) & certificates | — | ✅ |
+| Assessments (MCQ, task, coding) | — | ✅ |
 | No-login coding interviews for candidates | — | ✅ |
 | Super Admin console, audit logs, organisation branding | — | ✅ |
 | Leaderboard, badges, in-app notifications, calendars | — | ✅ |
@@ -124,8 +187,8 @@ One account can hold several roles (for example a Trainer who is also an Institu
 The fastest way to run everything (Postgres, Redis, the Django API, a Celery worker and the web app) is Docker. Nothing else to install.
 
 ```bash
-git clone https://github.com/pacewisdomsolutions/LMS.git
-cd LMS
+git clone https://github.com/Pace-Wisdom-Solutions-Pvt-Ltd/Tuturloom.git
+cd Tuturloom
 docker compose up --build
 ```
 
@@ -187,8 +250,8 @@ docker compose down                # stop; add -v to also wipe the database
 **1. Install**
 
 ```bash
-git clone https://github.com/pacewisdomsolutions/LMS.git
-cd LMS
+git clone https://github.com/Pace-Wisdom-Solutions-Pvt-Ltd/Tuturloom.git
+cd Tuturloom
 poetry env use python3.13
 poetry install
 ```
@@ -207,13 +270,13 @@ At minimum set `SECRET_KEY`, the `DB_*` variables (or `DATABASE_URL`), `REDIS_UR
 
 ```bash
 poetry run python manage.py migrate
-poetry run python manage.py createsuperuser          # you log in with your email address
 poetry run python manage.py create_initial_organization \
-  --name "Acme Academy" \
-  --admin-email admin@acme.edu                       # an existing user who becomes Institute Admin
+  --name "Acme Academy" --slug "acme-academy" \
+  --admin-email "admin@acme.edu" --password "AdminPassword123" \
+  --batch-name "Batch 1"
 ```
 
-Optional flags: `--slug`, `--email` (organisation contact) and `--batch-name` (default `"Batch 1"`).
+This creates the organisation, its first batch and the Institute Admin, who also gets Django admin (`/admin/`) access. Pass `--no-superuser` to skip that.
 
 **4. Run the backend**
 
@@ -285,25 +348,9 @@ All settings are read from environment variables (or a `.env` file). Copy [`.env
 
 </details>
 
-### 3. Set up the database, organisation, and admin
-```bash
-poetry run python manage.py migrate
-poetry run python manage.py create_initial_organization \
-  --name "Acme Academy" \
-  --slug "acme-academy" \
-  --admin-email "admin@acme.edu" \
-  --password "AdminPassword123" \
-  --batch-name "Batch 1"
-```
-*(This creates the organization, initial batch, and creates the Org Admin with Django admin panel (`/admin/`) superuser/staff access automatically).*
+---
 
-### 4. Run the backend
-
-```bash
-redis-server                                          # or: docker run -d -p 6379:6379 redis
-poetry run python manage.py runserver
-poetry run celery -A lms_core worker -l info          # background tasks
-```
+## 🔌 API
 
 | URL | What |
 |---|---|
@@ -407,8 +454,8 @@ npm run lint      # ESLint
 ## 🚢 Deployment
 
 ```bash
-docker build -t lms-backend .
-docker run -d -p 8000:8000 --env-file .env lms-backend
+docker build -t tutorloom-backend .
+docker run -d -p 8000:8000 --env-file .env tutorloom-backend
 ```
 
 > [!IMPORTANT]
@@ -476,9 +523,9 @@ Licensed under the [Apache License, Version 2.0](LICENSE). See [NOTICE](NOTICE) 
 
 <br/>
 
-<img src="frontend/public/just-logo.png" alt="" width="36" />
+<a href="https://www.pacewisdom.com/"><img src=".github/assets/pacewisdom-logo.svg" alt="Pace Wisdom Solutions" width="220" /></a>
 
-**Built and maintained by [Pace Wisdom Solutions](https://www.pacewisdom.com/)**
+**TutorLoom** is built and maintained by **[Pace Wisdom Solutions](https://www.pacewisdom.com/)**
 
 Copyright © 2026 Pace Wisdom Solutions Pvt. Ltd.
 
