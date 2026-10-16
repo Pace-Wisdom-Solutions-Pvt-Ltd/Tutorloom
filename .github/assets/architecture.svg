@@ -3,7 +3,7 @@ SPDX-FileCopyrightText: 2026 Pace Wisdom Solutions Pvt. Ltd.
 SPDX-License-Identifier: Apache-2.0
 -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="600" viewBox="0 0 1280 600" role="img" aria-labelledby="title desc">
-  <title id="title">LMS architecture</title>
+  <title id="title">TutorLoom architecture</title>
   <desc id="desc">The web app and the Flutter mobile app call the Django REST API with JWT. The API stores data in PostgreSQL, uploads on local disk or S3, and queues jobs in Redis. A Celery worker picks jobs from Redis and sends email through Amazon SES or SMTP.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
